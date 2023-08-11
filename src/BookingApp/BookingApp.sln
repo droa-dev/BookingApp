@@ -15,17 +15,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BackgroundJobs", "Backgroun
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{33AA9BD6-CF21-4C37-9ABD-81792BE13B4E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookingApp.Domain.Core", "BookingApp.Domain.Core\BookingApp.Domain.Core.csproj", "{A797AD51-ED57-45CC-BB17-5259187A1FDD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookingApp.Domain.Core", "BookingApp.Domain.Core\BookingApp.Domain.Core.csproj", "{A797AD51-ED57-45CC-BB17-5259187A1FDD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookingApp.WebApi", "BookingApp.WebApi\BookingApp.WebApi.csproj", "{3BD05A33-35C9-4D50-AF70-19F4434C917E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookingApp.WebApi", "BookingApp.WebApi\BookingApp.WebApi.csproj", "{3BD05A33-35C9-4D50-AF70-19F4434C917E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{3354B526-DAA6-4772-BFD4-3B11BBDDAF0E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookingApp.Infrastructure.Core", "BookingApp.Infrastructure.Core\BookingApp.Infrastructure.Core.csproj", "{5EBE7D95-7276-4F44-A98D-0EC3E62184CC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookingApp.Infrastructure.Core", "BookingApp.Infrastructure.Core\BookingApp.Infrastructure.Core.csproj", "{5EBE7D95-7276-4F44-A98D-0EC3E62184CC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{1C990B79-75DD-46BC-9EEC-FDF9C2FA34D9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookingApp.Application.Core", "BookingApp.Application.Core\BookingApp.Application.Core.csproj", "{81288124-0DF7-49B0-AA16-EE737B0D8028}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookingApp.Application.Core", "BookingApp.Application.Core\BookingApp.Application.Core.csproj", "{81288124-0DF7-49B0-AA16-EE737B0D8028}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
