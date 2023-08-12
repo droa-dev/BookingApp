@@ -23,7 +23,9 @@ namespace BookingApp.Domain.Core.Entities
         public decimal BaseCost { get; set; }
         public decimal TaxesCost { get; set; }
         public int HotelId { get; set; }
+        public Hotel Hotel { get; set; }
+        public IList<BookingRoom> BookingRooms { get; set; }
         public DateTime? CreatedAt { get; set; }
-        public DateTime? LastModifiedByAt { get; set; }
+        public DateTime? LastModifiedByAt { get; set; }        
     }
 }

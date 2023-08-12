@@ -30,6 +30,8 @@ namespace BookingApp.Domain.Core.Entities
         public string Identification { get; set; }
         public string Email { get; set; }
         public string Phone { get; set; }
+        public int BookingId { get; set; }
+        public Booking Booking { get; set; }
         public DateTime? CreatedAt { get; set; }
         public DateTime? LastModifiedByAt { get; set; }
     }
