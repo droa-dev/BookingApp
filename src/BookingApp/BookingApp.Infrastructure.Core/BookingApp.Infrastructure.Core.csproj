@@ -16,10 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Factories\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\BookingApp.Domain.Core\BookingApp.Domain.Core.csproj" />
   </ItemGroup>
 

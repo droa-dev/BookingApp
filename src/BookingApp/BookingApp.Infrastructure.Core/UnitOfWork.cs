@@ -12,15 +12,7 @@ namespace BookingApp.Infrastructure.Core
         public UnitOfWork(BookingAppDbContext context) => _context = context;
         public void Dispose() => this.Dispose(true);
 
-        public async Task<int> Save()
-        {
-            int affectedRows = await this._context
-                .SaveChangesAsync()
-                .ConfigureAwait(false);
-            return affectedRows;
-        }
-
-        public async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+        public async Task<int> Save(CancellationToken cancellationToken = default)
         {
             foreach (var entry in _context.ChangeTracker.Entries<IEntityBase>())
             {

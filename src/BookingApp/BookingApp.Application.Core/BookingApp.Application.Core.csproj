@@ -6,4 +6,24 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Features\Bookings\" />
+    <Folder Include="Features\Guests\" />
+    <Folder Include="Features\Hotels\Queries\Get\" />
+    <Folder Include="Features\Hotels\Queries\GetList\" />
+    <Folder Include="Features\Rooms\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
+    <PackageReference Include="FluentValidation" Version="11.7.0" />
+    <PackageReference Include="Hashids.net" Version="1.7.0" />
+    <PackageReference Include="MediatR" Version="12.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BookingApp.Domain.Core\BookingApp.Domain.Core.csproj" />
+    <ProjectReference Include="..\BookingApp.Infrastructure.Core\BookingApp.Infrastructure.Core.csproj" />
+  </ItemGroup>
+
 </Project>
