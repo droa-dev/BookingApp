@@ -7,14 +7,15 @@ namespace BookingApp.Domain.Core.Entities
     {
         public Room() { }
 
-        public Room(int id, int capacity, RoomType roomType, decimal baseCost, decimal taxesCost, int hotelId)
+        public Room(int id, int capacity, RoomType roomType, decimal baseCost, decimal taxesCost, int hotelId, bool enabled)
         {
-            this.Id = id;
-            this.Capacity = capacity;
-            this.RoomType = roomType;
-            this.BaseCost = baseCost;
-            this.TaxesCost = taxesCost;
-            this.HotelId = hotelId;
+            Id = id;
+            Capacity = capacity;
+            RoomType = roomType;
+            BaseCost = baseCost;
+            TaxesCost = taxesCost;
+            HotelId = hotelId;
+            Enabled = enabled;
         }
 
         public int Id { get; set; }
@@ -23,9 +24,10 @@ namespace BookingApp.Domain.Core.Entities
         public decimal BaseCost { get; set; }
         public decimal TaxesCost { get; set; }
         public int HotelId { get; set; }
+        public bool Enabled { get; set; }
         public Hotel Hotel { get; set; }
         public IList<BookingRoom> BookingRooms { get; set; }
         public DateTime? CreatedAt { get; set; }
-        public DateTime? LastModifiedByAt { get; set; }        
+        public DateTime? LastModifiedByAt { get; set; }
     }
 }

@@ -23,7 +23,7 @@ namespace BookingApp.Application.Core.Features.Hotels.Commands.Create
             var newHotel = _mapper.Map<Hotel>(command);
 
             await _hotelRepository.AddAsync(newHotel);
-            await _unitOfWork.SaveChangesAsync(cancellationToken);
+            await _unitOfWork.Save(cancellationToken);
         }
     }
 }

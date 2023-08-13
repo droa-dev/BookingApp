@@ -9,9 +9,7 @@
   <ItemGroup>
     <Folder Include="Features\Bookings\" />
     <Folder Include="Features\Guests\" />
-    <Folder Include="Features\Hotels\Queries\Get\" />
-    <Folder Include="Features\Hotels\Queries\GetList\" />
-    <Folder Include="Features\Rooms\" />
+    <Folder Include="Features\Rooms\Queries\" />
   </ItemGroup>
 
   <ItemGroup>
