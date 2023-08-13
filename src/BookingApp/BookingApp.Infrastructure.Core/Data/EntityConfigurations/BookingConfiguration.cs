@@ -20,6 +20,7 @@ namespace BookingApp.Infrastructure.Core.Data.EntityConfigurations
             builder.Property(p => p.FeedingType).IsRequired();
             builder.Property(p => p.StartDate).IsRequired();
             builder.Property(p => p.EndDate).IsRequired();
+            builder.Property(p => p.Active).IsRequired();
         }
     }
 }

@@ -4,8 +4,13 @@ using BookingApp.Domain.Core.Factories;
 
 namespace BookingApp.Infrastructure.Core.Factories
 {
-    public class EntityFactory : IHotelFactory, IRoomFactory
+    public class EntityFactory : IHotelFactory, IRoomFactory, IBookingFactory
     {
+        public Booking NewBooking(FeedingType feedingType, DateTime startDate, DateTime endDate, int id = 0, bool active = true)
+        {
+            return new Booking(id: id, feedingType, startDate, endDate, active);
+        }
+
         public Hotel NewHotel(string name, City city, string address, int stars, int id = 0, bool active = true)
         {
             return new Hotel { Name = name, City = city, Address = address, Stars = stars, Id = id, Active = active };
