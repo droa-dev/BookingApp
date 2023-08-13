@@ -17,7 +17,7 @@ namespace BookingApp.Domain.Core.Entities
             this.EndDate = endDate;
         }
 
-        public int Id { get; set; }        
+        public int Id { get; set; }
         public ICollection<Guest> Guests { get; set; }
         public FeedingType FeedingType { get; set; }
         public DateTime StartDate { get; set; }

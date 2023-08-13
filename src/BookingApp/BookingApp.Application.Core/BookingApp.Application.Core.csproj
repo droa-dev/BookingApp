@@ -8,8 +8,7 @@
 
   <ItemGroup>
     <Folder Include="Features\Bookings\" />
-    <Folder Include="Features\Guests\" />
-    <Folder Include="Features\Rooms\Queries\" />
+    <Folder Include="Features\Guests\Queries\" />
   </ItemGroup>
 
   <ItemGroup>
