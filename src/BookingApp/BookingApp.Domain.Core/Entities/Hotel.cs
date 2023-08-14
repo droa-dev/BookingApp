@@ -24,6 +24,7 @@ namespace BookingApp.Domain.Core.Entities
         public int Stars { get; set; }
         public bool Active { get; set; }
         public ICollection<Room>? Rooms { get; set; }
+        public ICollection<Booking>? Bookings { get; set; }
         public DateTime? CreatedAt { get; set; }
         public DateTime? LastModifiedByAt { get; set; }
     }

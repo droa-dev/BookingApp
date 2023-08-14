@@ -9,8 +9,8 @@ namespace BookingApp.Application.Core.Features.Guests.Commands.Create
         public CreateGuestCommandMapper()
         {
             CreateMap<CreateGuestCommand, Guest>()
-                .ForMember(m => m.BookingId.ToHashId(),
-                opt => opt.MapFrom(mf => mf.BookingId));
+                .ForMember(m => m.BookingId,
+                opt => opt.MapFrom(mf => mf.BookingId.FromHashId()));
         }
     }
 }

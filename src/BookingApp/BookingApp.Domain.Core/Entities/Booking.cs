@@ -7,12 +7,13 @@ namespace BookingApp.Domain.Core.Entities
     {
         public Booking() { }
 
-        public Booking(int id, FeedingType feedingType, DateTime startDate, DateTime endDate, bool active)
+        public Booking(int id, FeedingType feedingType, DateTime startDate, DateTime endDate, int hotelId, bool active)
         {
             Id = id;
             FeedingType = feedingType;
             StartDate = startDate;
             EndDate = endDate;
+            HotelId = hotelId;
             Active = active;
         }
 
@@ -23,6 +24,8 @@ namespace BookingApp.Domain.Core.Entities
         public DateTime EndDate { get; set; }
         public bool Active { get; set; }
         public ICollection<BookingRoom> BookingRooms { get; set; } = new HashSet<BookingRoom>();
+        public int HotelId { get; set; }
+        public Hotel Hotel { get; set; }
         public DateTime? CreatedAt { get; set; }
         public DateTime? LastModifiedByAt { get; set; }
     }

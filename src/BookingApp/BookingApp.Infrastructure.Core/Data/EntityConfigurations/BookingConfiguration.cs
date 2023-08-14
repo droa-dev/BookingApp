@@ -17,6 +17,10 @@ namespace BookingApp.Infrastructure.Core.Data.EntityConfigurations
 
             builder.HasKey(x => x.Id);
 
+            builder.HasOne(p => p.Hotel)
+                .WithMany(h => h.Bookings)
+                .HasForeignKey(p => p.HotelId);
+
             builder.Property(p => p.FeedingType).IsRequired();
             builder.Property(p => p.StartDate).IsRequired();
             builder.Property(p => p.EndDate).IsRequired();
