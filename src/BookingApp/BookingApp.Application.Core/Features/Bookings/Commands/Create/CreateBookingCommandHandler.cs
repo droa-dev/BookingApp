@@ -11,14 +11,16 @@ namespace BookingApp.Application.Core.Features.Bookings.Commands.Create
     public class CreateBookingCommandHandler : IRequestHandler<CreateBookingCommand>
     {
         private readonly IBookingRepository _bookingRepository;
+        private readonly IRoomRepository _roomRepository;
         private readonly IMapper _mapper;
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMediator _mediator;
         private readonly EntityFactory _entityFactory;
 
-        public CreateBookingCommandHandler(IBookingRepository bookingRepository, IMapper mapper, IUnitOfWork unitOfWork, IMediator mediator, EntityFactory entityFactory)
+        public CreateBookingCommandHandler(IBookingRepository bookingRepository, IRoomRepository roomRepository, IMapper mapper, IUnitOfWork unitOfWork, IMediator mediator, EntityFactory entityFactory)
         {
             _bookingRepository = bookingRepository;
+            _roomRepository = roomRepository;
             _mapper = mapper;
             _unitOfWork = unitOfWork;
             _mediator = mediator;
@@ -36,8 +38,8 @@ namespace BookingApp.Application.Core.Features.Bookings.Commands.Create
 
             foreach (var room in request.BookingRooms)
             {
-                BookingRoom bookingRoom = new() { BookingId = booking.Id, RoomId = room.RoomId.FromHashId() };
-                booking.BookingRooms.Add(bookingRoom);
+                Room bookedRoom = await _roomRepository.GetByIdAsync(room.RoomId.FromHashId());
+                booking.Rooms.Add(bookedRoom);
             }
 
             await _bookingRepository.AddAsync(booking);

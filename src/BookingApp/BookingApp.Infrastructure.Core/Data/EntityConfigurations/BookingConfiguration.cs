@@ -20,7 +20,10 @@ namespace BookingApp.Infrastructure.Core.Data.EntityConfigurations
             builder
                 .HasMany(p => p.Rooms)
                 .WithMany(p => p.Bookings)
-                .UsingEntity<BookingRoom>();
+                .UsingEntity(
+                l => l.HasOne(typeof(Room)).WithMany().OnDelete(DeleteBehavior.NoAction),
+                r => r.HasOne(typeof(Booking)).WithMany().OnDelete(DeleteBehavior.NoAction)
+                );                
 
             builder.HasOne(p => p.Hotel)
                 .WithMany(h => h.Bookings)

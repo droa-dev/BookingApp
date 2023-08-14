@@ -26,8 +26,7 @@ namespace BookingApp.Domain.Core.Entities
         public int HotelId { get; set; }
         public bool Enabled { get; set; }
         public Hotel Hotel { get; set; }
-        public IList<Booking> Bookings { get; set; }
-        public IList<BookingRoom> BookingRooms { get; set; }
+        public IList<Booking> Bookings { get; set; }        
         public DateTime? CreatedAt { get; set; }
         public DateTime? LastModifiedByAt { get; set; }
     }
