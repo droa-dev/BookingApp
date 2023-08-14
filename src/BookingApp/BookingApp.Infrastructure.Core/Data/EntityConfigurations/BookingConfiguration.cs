@@ -17,6 +17,11 @@ namespace BookingApp.Infrastructure.Core.Data.EntityConfigurations
 
             builder.HasKey(x => x.Id);
 
+            builder
+                .HasMany(p => p.Rooms)
+                .WithMany(p => p.Bookings)
+                .UsingEntity<BookingRoom>();
+
             builder.HasOne(p => p.Hotel)
                 .WithMany(h => h.Bookings)
                 .HasForeignKey(p => p.HotelId);

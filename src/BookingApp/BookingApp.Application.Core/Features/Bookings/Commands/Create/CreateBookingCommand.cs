@@ -9,6 +9,7 @@ namespace BookingApp.Application.Core.Features.Bookings.Commands.Create
         public FeedingType FeedingType { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
+        public string HotelId { get; set; } = default!;
         public List<NewBookingRoom> BookingRooms { get; set; } = new();
     }
 

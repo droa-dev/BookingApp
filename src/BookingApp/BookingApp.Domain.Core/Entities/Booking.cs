@@ -23,6 +23,7 @@ namespace BookingApp.Domain.Core.Entities
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public bool Active { get; set; }
+        public IList<Room> Rooms { get; set; }
         public ICollection<BookingRoom> BookingRooms { get; set; } = new HashSet<BookingRoom>();
         public int HotelId { get; set; }
         public Hotel Hotel { get; set; }

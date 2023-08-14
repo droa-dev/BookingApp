@@ -5,6 +5,6 @@ namespace BookingApp.Domain.Core.Factories
 {
     public interface IBookingFactory
     {
-        Booking NewBooking(FeedingType feedingType, DateTime startDate, DateTime endDate, int id = 0, bool active = true);
+        Booking NewBooking(FeedingType feedingType, DateTime startDate, DateTime endDate, int id = 0, int hotelId = 0, bool active = true);
     }
 }

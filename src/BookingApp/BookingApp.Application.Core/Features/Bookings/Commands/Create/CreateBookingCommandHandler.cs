@@ -32,7 +32,7 @@ namespace BookingApp.Application.Core.Features.Bookings.Commands.Create
 
         private async Task<Booking> CreateBookingAsync(CreateBookingCommand request, CancellationToken cancellationToken)
         {
-            Booking booking = _entityFactory.NewBooking(request.FeedingType, request.StartDate, request.EndDate);
+            Booking booking = _entityFactory.NewBooking(request.FeedingType, request.StartDate, request.EndDate, hotelId: request.HotelId.FromHashId());
 
             foreach (var room in request.BookingRooms)
             {

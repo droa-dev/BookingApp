@@ -6,9 +6,9 @@ namespace BookingApp.Infrastructure.Core.Factories
 {
     public class EntityFactory : IHotelFactory, IRoomFactory, IBookingFactory
     {
-        public Booking NewBooking(FeedingType feedingType, DateTime startDate, DateTime endDate, int id = 0, bool active = true)
+        public Booking NewBooking(FeedingType feedingType, DateTime startDate, DateTime endDate, int id = 0, int hotelId = 0, bool active = true)
         {
-            return new Booking(id: id, feedingType, startDate, endDate, active);
+            return new Booking(id: id, feedingType, startDate, endDate, hotelId, active);
         }
 
         public Hotel NewHotel(string name, City city, string address, int stars, int id = 0, bool active = true)
