@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc.Formatters;
+﻿using BookingApp.WebApi.Filters;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Formatters;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
@@ -18,6 +20,7 @@ namespace BookingApp.WebApi.Modules.Common.Extensions
                 .AddHttpContextAccessor()
                 .AddMvc(options =>
                 {
+                    options.Filters.Add<ApiExceptionFilterAttribute>();
                     options.OutputFormatters.RemoveType<TextOutputFormatter>();
                     options.OutputFormatters.RemoveType<StreamOutputFormatter>();
                     options.RespectBrowserAcceptHeader = true;
@@ -30,6 +33,9 @@ namespace BookingApp.WebApi.Modules.Common.Extensions
                         new JsonStringEnumConverter());
                 })
                 .AddControllersAsServices();
+                
+            services.Configure<ApiBehaviorOptions>(options =>
+                options.SuppressModelStateInvalidFilter = true);
 
             return services;
         }

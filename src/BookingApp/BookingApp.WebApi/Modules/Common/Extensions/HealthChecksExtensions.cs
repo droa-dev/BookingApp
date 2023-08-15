@@ -1,7 +1,6 @@
 ﻿using BookingApp.Infrastructure.Core.Data;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
-using Microsoft.FeatureManagement;
 using Newtonsoft.Json.Linq;
 using System.Net.Mime;
 
@@ -20,10 +19,6 @@ namespace BookingApp.WebApi.Modules.Common.Extensions
             IConfiguration configuration)
         {
             IHealthChecksBuilder healthChecks = services.AddHealthChecks();
-
-            IFeatureManager featureManager = services
-                .BuildServiceProvider()
-                .GetRequiredService<IFeatureManager>();
 
             healthChecks.AddDbContextCheck<BookingAppDbContext>("BookingAppDbContext");
 

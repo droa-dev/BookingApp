@@ -9,8 +9,8 @@ namespace BookingApp.Application.Core.Features.Rooms.Commands.Create
         public CreateRoomCommandMapper()
         {
             CreateMap<CreateRoomCommand, Room>()
-                .ForMember(m => m.HotelId.ToHashId(),
-                            opt => opt.MapFrom(mf => mf.HotelId));
+                .ForMember(m => m.HotelId,
+                            opt => opt.MapFrom(mf => mf.HotelId.FromHashId()));
         }
     }
 }

@@ -22,6 +22,7 @@ namespace BookingApp.WebApi
                 .AddApplicationCore()
                 .AddPersistence(Configuration)
                 .AddInfrastructure()
+                .AddHealthChecks(this.Configuration)
                 .AddVersioning()
                 .AddSwagger(Configuration)
                 .AddApplicationInsightsTelemetry()
