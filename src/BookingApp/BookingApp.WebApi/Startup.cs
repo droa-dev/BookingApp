@@ -22,11 +22,11 @@ namespace BookingApp.WebApi
                 .AddApplicationCore()
                 .AddPersistence(Configuration)
                 .AddInfrastructure()
-                .AddHealthChecks(this.Configuration)
+                .AddHealthChecks(Configuration)
                 .AddVersioning()
-                .AddSwagger(Configuration)
-                .AddApplicationInsightsTelemetry()
-                .AddCustomControllers();
+                .AddSwagger(Configuration)                
+                .AddCustomControllers()
+                .AddCustomCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -41,6 +41,8 @@ namespace BookingApp.WebApi
                 .UseCustomCors()
                 .UseRouting()
                 .UseVersionedSwagger(provider, Configuration, env)
+                .UseAuthentication()
+                .UseAuthorization()
                 .UseEndpoints(endpoints =>
                 {
                     endpoints.MapControllers();

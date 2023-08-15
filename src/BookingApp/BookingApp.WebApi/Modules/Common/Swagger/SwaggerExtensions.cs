@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.Extensions.Options;
 using Microsoft.Extensions.PlatformAbstractions;
-using Microsoft.FeatureManagement;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using System.Reflection;
 

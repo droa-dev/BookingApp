@@ -34,7 +34,8 @@ namespace BookingApp.Infrastructure.Core.Extensions
 
             var type = typeof(TEntity);
             var property = type.GetProperties()
-                .FirstOrDefault(item => item.Name.ToLower() == propertyName.ToLower());
+            .Where(item => item.Name.ToLower() == propertyName.ToLower())
+            .FirstOrDefault();
 
             if (property == null)
                 return source;

@@ -1,6 +1,7 @@
 ﻿using BookingApp.Application.Core.Common.Exceptions;
 using BookingApp.Application.Core.Common.Messages.Hotel;
 using BookingApp.Application.Core.Features.Hotels.Commands.Create;
+using BookingApp.Application.Core.Features.Hotels.Commands.Update;
 using BookingApp.Application.Core.Features.Hotels.Queries.Get;
 using BookingApp.Application.Core.Features.Hotels.Queries.GetList;
 using BookingApp.Domain.Core.Models;
@@ -38,8 +39,8 @@ namespace BookingApp.WebApi.Controllers
         /// <returns>hoteles encontrados</returns>
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(PagedResult<GetHotelsQueryResponse>))]
-        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ValidationException))]
-        [ProducesResponseType(StatusCodes.Status404NotFound, Type = typeof(NotFoundException))]
+        //[ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ValidationException))]
+        //[ProducesResponseType(StatusCodes.Status404NotFound, Type = typeof(NotFoundException))]
         [ApiConventionMethod(typeof(CustomApiConventions), nameof(CustomApiConventions.Get))]
         public async Task<PagedResult<GetHotelsQueryResponse>> GetHotels([FromQuery] GetHotelsQuery query)
         {
@@ -56,8 +57,8 @@ namespace BookingApp.WebApi.Controllers
         /// <returns>hotel encontrado</returns>
         [HttpGet("{HotelId}")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(GetHotelQueryResponse))]
-        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ValidationException))]
-        [ProducesResponseType(StatusCodes.Status404NotFound, Type = typeof(NotFoundException))]
+        //[ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ValidationException))]
+        //[ProducesResponseType(StatusCodes.Status404NotFound, Type = typeof(NotFoundException))]
         [ApiConventionMethod(typeof(CustomApiConventions), nameof(CustomApiConventions.Get))]
         public async Task<GetHotelQueryResponse> GetHotelById([FromRoute] GetHotelQuery query)
         {
@@ -73,7 +74,7 @@ namespace BookingApp.WebApi.Controllers
         /// <returns>creado</returns>
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(string))]
-        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ValidationException))]
+        //[ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ValidationException))]
         [ApiConventionMethod(typeof(CustomApiConventions), nameof(CustomApiConventions.Post))]
         public async Task<IActionResult> CreateHotel([FromBody] CreateHotelCommand command) 
         {
@@ -82,7 +83,30 @@ namespace BookingApp.WebApi.Controllers
                 CreateHotelCommand = command
             });
 
-            return Created(string.Empty, "resource created successfully");
+            return Created(string.Empty, "create command successfully received");
+        }
+
+        /// <summary>
+        /// Actualiza un hotel
+        /// </summary>
+        /// <response code="202">Hotel actualizado.</response>
+        /// <response code="400">Bad request.</response>        
+        /// <response code="404">Not found.</response>
+        /// <param name="command">update hotel command.</param>        
+        /// <returns>creado</returns>
+        [HttpPut]
+        [ProducesResponseType(StatusCodes.Status202Accepted, Type = typeof(string))]
+        //[ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ValidationException))]
+        //[ProducesResponseType(StatusCodes.Status404NotFound, Type = typeof(NotFoundException))]
+        [ApiConventionMethod(typeof(CustomApiConventions), nameof(CustomApiConventions.Update))]
+        public async Task<IActionResult> UpdateHotel([FromBody] UpdateHotelCommand command)
+        {
+            await _queuesService.QueueAsync("new-updatehotel", new UpdateHotelMessage
+            {
+                UpdateHotelCommand = command
+            });
+
+            return Created(string.Empty, "update command successfully received");
         }
     }
 }

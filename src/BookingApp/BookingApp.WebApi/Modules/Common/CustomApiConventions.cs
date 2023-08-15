@@ -122,7 +122,7 @@ namespace BookingApp.WebApi.Modules.Common
         /// </summary>
         [ApiConventionNameMatch(ApiConventionNameMatchBehavior.Prefix)]
         [ProducesDefaultResponseType]
-        [ProducesResponseType(204)]
+        [ProducesResponseType(202)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
         public static void Update([ApiConventionNameMatch(ApiConventionNameMatchBehavior.Suffix)]
