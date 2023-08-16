@@ -9,6 +9,7 @@ namespace BookingApp.Domain.Core.Repositories
         Task<IEnumerable<T>> FindAllAsync(params Expression<Func<T, object>>[] includeProperties);
         IQueryable<T> FindByCondition(Expression<Func<T, bool>> expression);
         Task<T> GetByIdAsync(int id);
+        Task<T> GetByIdAsyncWithTracking(int id);
         void Add(T entity);
         Task AddAsync(T entity);
         void Update(T entity);

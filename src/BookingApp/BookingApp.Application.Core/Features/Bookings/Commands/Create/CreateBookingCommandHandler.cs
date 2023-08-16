@@ -38,7 +38,7 @@ namespace BookingApp.Application.Core.Features.Bookings.Commands.Create
 
             foreach (var room in request.BookingRooms)
             {
-                Room bookedRoom = await _roomRepository.GetByIdAsync(room.RoomId.FromHashId());
+                Room bookedRoom = await _roomRepository.GetByIdAsyncWithTracking(room.RoomId.FromHashId());
                 booking.Rooms.Add(bookedRoom);
             }
 

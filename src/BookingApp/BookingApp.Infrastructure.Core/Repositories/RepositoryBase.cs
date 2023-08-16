@@ -72,6 +72,12 @@ namespace BookingApp.Infrastructure.Core.Repositories
             .FirstOrDefaultAsync(n => n.Id == id)
             .ConfigureAwait(false);
 
+        public async Task<T> GetByIdAsyncWithTracking(int id)
+            => await this.Context
+            .Set<T>()            
+            .FirstOrDefaultAsync(n => n.Id == id)
+            .ConfigureAwait(false);
+
         public async Task AddAsync(T entity)
         {
             await this.Context.Set<T>().AddAsync(entity).ConfigureAwait(false);

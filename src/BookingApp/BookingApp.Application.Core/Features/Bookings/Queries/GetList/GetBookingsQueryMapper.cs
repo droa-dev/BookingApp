@@ -10,7 +10,15 @@ namespace BookingApp.Application.Core.Features.Bookings.Queries.GetList
         {
             CreateMap<Booking, GetBookingsQueryResponse>()
                 .ForMember(m => m.HotelId,
-                opt => opt.MapFrom(mf => mf.HotelId.ToHashId()));
+                opt => opt.MapFrom(mf => mf.HotelId.ToHashId()))
+                .ForMember(
+                m => m.BookingRooms,
+                opt => opt.MapFrom(mf => mf.Rooms));
+
+            CreateMap<Room, BookingRoomList>()
+                .ForMember(
+                m => m.Id,
+                opt => opt.MapFrom(mf => mf.Id.ToHashId()));
         }
     }
 }

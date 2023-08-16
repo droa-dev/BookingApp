@@ -11,9 +11,24 @@ namespace BookingApp.Application.Core.Features.Bookings.Queries.GetList
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public bool Active { get; set; }
-        public List<Room>? BookingRooms { get; set; }
+        public List<BookingRoomList>? BookingRooms { get; set; }
         public string HotelId { get; set; } = default!;
         public Hotel? Hotel { get; set; }
+        public DateTime? CreatedAt { get; set; }
+        public DateTime? LastModifiedByAt { get; set; }
+    }
+
+    public class BookingRoomList
+    {
+        public string Id { get; set; } = default!;
+        public int Capacity { get; set; }
+        public RoomType RoomType { get; set; }
+        public decimal BaseCost { get; set; }
+        public decimal TaxesCost { get; set; }
+        public int HotelId { get; set; }
+        public bool Enabled { get; set; }
+        public Hotel Hotel { get; set; } = default!;
+        public IList<Booking> Bookings { get; set; } = default!;
         public DateTime? CreatedAt { get; set; }
         public DateTime? LastModifiedByAt { get; set; }
     }

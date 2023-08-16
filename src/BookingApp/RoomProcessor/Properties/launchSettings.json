@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "RoomProcessor": {
+      "commandName": "Project",
+      "commandLineArgs": "host start --port 9003"
+    }
+  }
+}
